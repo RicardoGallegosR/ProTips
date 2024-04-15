@@ -13,3 +13,5 @@ GO
 CREATE SCHEMA Nombres;
 GO
 CREATE SCHEMA Resultados;
+GO
+CREATE SCHEMA Personas;

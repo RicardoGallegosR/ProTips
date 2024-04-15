@@ -1,12 +1,12 @@
-CREATE TABLE Activo.Activos (
-    ActivoId TINYINT IDENTITY(0,1) NOT NULL,
-	tipo_Activo NVARCHAR(30) NOT NULL, 
+CREATE TABLE Personas.TipoPersona (
+    TipoPersonaId TINYINT IDENTITY(0,1) NOT NULL,
+	TipoPersona NVARCHAR(20) NOT NULL, 
     rowguid UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL, 
-    PRIMARY KEY (ActivoId) 
+    PRIMARY KEY (TipoPersonaId) 
 );
 
 
---DROP TABLE Activo.Activos
+--DROP TABLE Personas.TipoPersona
 DECLARE
     @ErrorMessage NVARCHAR(4000),
     @ErrorSeverity INT,
@@ -14,13 +14,24 @@ DECLARE
 
 BEGIN TRY
     BEGIN TRANSACTION
-        INSERT INTO Examples.Activo.Activos (tipo_Activo)
+        INSERT INTO Examples.Personas.TipoPersona (TipoPersona)
         VALUES	('DESCONOCIDO'),
-				('ACTIVO'),
-				('DESACTIVO'),
-				('TERMINADO'),
-				('DESCONTINUADO')
-    COMMIT TRANSACTION;
+				('CLIENTE'),
+				('PROVEDOR'),
+				('APODERADO LEGAL'),
+				('VENDEDOR'),
+				('EJECUTIVO'),
+				('GERENTE'),
+				('SOPORTE TECNICO'),
+				('SOCIO'),
+				('SUBDIRECTOR'),
+				('DIRECTOR'),
+				('REGIONAL'),
+				('RECURSOS HUMANOS'),
+				('CAPACITADOR'),
+				('AUDITOR'),
+				('DESPACHO LEGAL')
+COMMIT TRANSACTION;
 END TRY
 BEGIN CATCH
     SELECT 
@@ -35,8 +46,9 @@ BEGIN CATCH
 END CATCH
 
 
-UPDATE Activo.Activos
+UPDATE Examples.Personas.TipoPersona
 SET ROWGUID = '00000000-0000-0000-0000-000000000000'
-WHERE ActivoId = 0
+WHERE TipoPersonaiD = 0
 
-SELECT * FROM Activo.Activos
+SELECT * FROM Examples.Personas.TipoPersona
+ORDER BY TipoPersonaId

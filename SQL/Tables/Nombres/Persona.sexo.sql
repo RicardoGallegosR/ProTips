@@ -1,12 +1,12 @@
-CREATE TABLE Activo.Activos (
-    ActivoId TINYINT IDENTITY(0,1) NOT NULL,
-	tipo_Activo NVARCHAR(30) NOT NULL, 
+CREATE TABLE Personas.Sexo (
+    SexoId TINYINT IDENTITY(0,1) NOT NULL,
+	Sexo NVARCHAR(20) NOT NULL, 
     rowguid UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL, 
-    PRIMARY KEY (ActivoId) 
+    PRIMARY KEY (SexoId) 
 );
 
 
---DROP TABLE Activo.Activos
+--DROP TABLE Personas.TipoPersona
 DECLARE
     @ErrorMessage NVARCHAR(4000),
     @ErrorSeverity INT,
@@ -14,13 +14,12 @@ DECLARE
 
 BEGIN TRY
     BEGIN TRANSACTION
-        INSERT INTO Examples.Activo.Activos (tipo_Activo)
+        INSERT INTO Examples.Personas.Sexo (Sexo)
         VALUES	('DESCONOCIDO'),
-				('ACTIVO'),
-				('DESACTIVO'),
-				('TERMINADO'),
-				('DESCONTINUADO')
-    COMMIT TRANSACTION;
+				('MASCULINO'),
+				('FEMENINO'),
+				('OTRO')
+COMMIT TRANSACTION;
 END TRY
 BEGIN CATCH
     SELECT 
@@ -35,8 +34,9 @@ BEGIN CATCH
 END CATCH
 
 
-UPDATE Activo.Activos
+UPDATE Examples.Personas.sexo
 SET ROWGUID = '00000000-0000-0000-0000-000000000000'
-WHERE ActivoId = 0
+WHERE SexoId = 0
 
-SELECT * FROM Activo.Activos
+SELECT * FROM Examples.Personas.Sexo
+ORDER BY SexoId
