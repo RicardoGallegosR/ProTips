@@ -5,6 +5,11 @@ CREATE TABLE Personas.Sexo (
     PRIMARY KEY (SexoId) 
 );
 
+-- Falta su llave primaria a Activo
+
+
+
+
 
 --DROP TABLE Personas.TipoPersona
 DECLARE

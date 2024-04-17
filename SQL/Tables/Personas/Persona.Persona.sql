@@ -16,14 +16,14 @@ CREATE TABLE Personas.Persona (
 	CHECK (CURP LIKE '[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9]'),
 	CHECK (RFC LIKE '[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][A-Z0-9][A-Z0-9][A-Z0-9]'),
 	rowguid UNIQUEIDENTIFIER DEFAULT NEWID() NOT NULL, 
-	Activo TINYINT DEFAULT 1, -- La persona esta activa
+	ActivoId TINYINT DEFAULT 1, -- La persona esta activa
 	PRIMARY KEY (PersonaID) 
 );
 
 -- DROP TABLE Personas.Persona
 ALTER TABLE Personas.Persona
 ADD CONSTRAINT FK_Activos_Personas
-FOREIGN KEY (Activo) REFERENCES Examples.Activo.Activos(Id);
+FOREIGN KEY (ActivoId) REFERENCES Examples.Activo.Activos(Id);
 
 ALTER TABLE Personas.Persona
 ADD CONSTRAINT FK_TipoPersona_Personas
