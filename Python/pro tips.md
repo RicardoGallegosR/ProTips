@@ -7,6 +7,7 @@ dfm["columns"] = dfm["columns"].apply(lambda x: unidecode(str(x)).lower())
 
 # Programaicon 
 multiples opciones 
+```
 def tipoCertificado (CeritificadoId):
     match CeritificadoId: 
         case 0:	return 'DESCONOCIDO'
@@ -22,7 +23,10 @@ def tipoCertificado (CeritificadoId):
         case 10: return 'VALIDACION'
         case 11: return 'REVISTA'
         case _: return 'CERTIFICADO NO DEFINIDO'
+```
+un excel multiples hojas
 
+```
 def guardar_multiples_hojas(dfs: dict, archivo: str) -> None:
     """
     Guarda múltiples DataFrames en un archivo Excel, cada uno en una hoja separada.
@@ -31,5 +35,9 @@ def guardar_multiples_hojas(dfs: dict, archivo: str) -> None:
     :param archivo: Ruta del archivo Excel a guardar
     """
     with pd.ExcelWriter(archivo, engine='openpyxl') as writer:
+
         for nombre_hoja, df in dfs.items():
+dfs = {'Hoja1': df1, 'Hoja2': df2}
+guardar_multiples_hojas(dfs, 'multiples_hojas.xlsx')
+```
             df.to_excel(writer, sheet_name=nombre_hoja, index=False)
