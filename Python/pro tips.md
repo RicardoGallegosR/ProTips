@@ -5,7 +5,7 @@ dfm["columns"] = dfm["columns"].apply(lambda x: unidecode(str(x)).lower())
 ```
 
 
-# Programaicon 
+# Programación 
 multiples opciones 
 ```
 def tipoCertificado (CeritificadoId):
@@ -26,4 +26,10 @@ def guardar_multiples_hojas(path: str, archivo: str, dfs: dict) -> None:
 
 dfs = {'Hoja1': df1, 'Hoja2': df2}
 guardar_multiples_hojas(dfs, 'multiples_hojas.xlsx')
+```
+# Entornos virtuales
+```
+pip install virtualenv
+python -m venv venv
+virtualenv venv
 ```
