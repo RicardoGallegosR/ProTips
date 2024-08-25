@@ -33,4 +33,5 @@ pip install virtualenv
 python -m venv venv
 virtualenv venv
 venv\Scripts\activate
+.\venv\Scripts\activate # por si no se puede
 ```
