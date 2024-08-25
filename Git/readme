@@ -1,0 +1,25 @@
+# Creacion de repositorios 
+Cuando crees un repositorio para no agregar mamadas siempre incluye un `.gitignore`, en la raíz del proyecto para no subir archivos y librerias incesarias :D 
+```
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+/media
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+
+
+``` 
