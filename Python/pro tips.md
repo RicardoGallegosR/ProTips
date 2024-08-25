@@ -32,4 +32,5 @@ guardar_multiples_hojas(dfs, 'multiples_hojas.xlsx')
 pip install virtualenv
 python -m venv venv
 virtualenv venv
+venv\Scripts\activate
 ```
